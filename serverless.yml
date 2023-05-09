@@ -1,0 +1,24 @@
+service: teste-lambda
+frameworkVersion: "3"
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  apiGet:
+    handler: handle/get/index.handler
+    events:
+      - httpApi:
+          path: /get
+          method: get
+  apiPost:
+    handler: handle/post/index.handler
+    events:
+      - httpApi:
+          path: /post
+          method: post
